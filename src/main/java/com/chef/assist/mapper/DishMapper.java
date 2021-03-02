@@ -46,9 +46,10 @@ public interface DishMapper {
 //    })
 //    UserEntity getOne(Long id);
 
-    @Insert("<script>INSERT INTO ca_dish(name,description,tags, price, expected_cooking_time) VALUES(#{name}, #{description}, #{tags}, #{price},  " +
+    @Insert({"<script>INSERT INTO ca_dish(name,description,tags, price ,temperature,humidity,expected_cooking_time) VALUES(#{name}, #{description}, #{tags}, #{price},  #{temperature},#{humidity}," +
             "<if test='expectedCookingTime != null'>#{expectedCookingTime})</if>" +
-            "<if test='expectedCookingTime == null'>default)</if></script>")
+            "<if test='expectedCookingTime == null'>default)</if>"
+             +"</script>"})
     @Options(useGeneratedKeys=true, keyProperty="id")
     Long insert(Dish dish);
 
