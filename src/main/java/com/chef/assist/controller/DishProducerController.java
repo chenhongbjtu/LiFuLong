@@ -105,11 +105,11 @@ public class DishProducerController {
 
         Map<Long, List<DishProducerBoardDTO.BoardInnerItems>> interMediateMap = new HashMap<>();
         for(KitBoardItems k: kitBoardItems){
-            if(interMediateMap.containsKey(k.getProducerId())){
-                interMediateMap.get(k.getProducerId()).add(new DishProducerBoardDTO.BoardInnerItems(k.getItemId(), k.getDishName(), k.getDishCount(), k.getDescription()));
+            if(interMediateMap.containsKey(k.getProducer_id())){
+                interMediateMap.get(k.getProducer_id()).add(new DishProducerBoardDTO.BoardInnerItems(k.getItem_id(), k.getDish_name(), k.getDish_count(), k.getDescription()));
             }else{
-                interMediateMap.put(k.getProducerId(), new ArrayList<>());
-                interMediateMap.get(k.getProducerId()).add(new DishProducerBoardDTO.BoardInnerItems(k.getItemId(), k.getDishName(), k.getDishCount(), k.getDescription()));
+                interMediateMap.put(k.getProducer_id(), new ArrayList<>());
+                interMediateMap.get(k.getProducer_id()).add(new DishProducerBoardDTO.BoardInnerItems(k.getItem_id(), k.getDish_name(), k.getDish_count(), k.getDescription()));
             }
         }
 

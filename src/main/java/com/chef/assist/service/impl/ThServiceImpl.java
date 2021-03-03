@@ -1,6 +1,5 @@
 package com.chef.assist.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.chef.assist.mapper.ThMapper;
 import com.chef.assist.model.Th;
 import com.chef.assist.service.IThService;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @since 2021-03-01
  */
 @Service
-public class ThServiceImpl extends ServiceImpl<ThMapper, Th> implements IThService {
+public class ThServiceImpl  implements IThService {
 
     @Autowired
     ThMapper thMapper;

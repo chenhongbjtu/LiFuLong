@@ -1,6 +1,5 @@
 package com.chef.assist.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.chef.assist.model.Th;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface ThMapper extends BaseMapper<Th> {
+public interface ThMapper  {
 
 //   @Select("select * from th\n" +
 //           "    where name = #{name}")

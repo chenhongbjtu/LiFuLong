@@ -16,7 +16,7 @@ import java.util.Map;
 @Component(value = "orderItemMapper")
 public interface OrderItemMapper {
 
-    @Select("SELECT * FROM ca_order_item WHERE id = #{id}")
+    @Select("SELECT * FROM  m  WHERE id = #{id}")
     @Results({
             @Result(property = "orderId",  column = "order_id"),
             @Result(property = "tableId", column = "table_id"),
