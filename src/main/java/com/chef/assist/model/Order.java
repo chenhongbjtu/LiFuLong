@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 public class Order {
     private Long id;
-    @JsonProperty("order_number")
+    @JsonProperty("order_no")
     @NotNull
     private String orderNumber;
 
