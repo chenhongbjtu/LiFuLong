@@ -21,4 +21,6 @@ public interface ThMapper  {
 //           "    where name = #{name}")
     Th findThByName(String name);
 
+
+
 }

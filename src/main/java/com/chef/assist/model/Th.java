@@ -29,6 +29,15 @@ public class Th  {
 
     private String humidity;
 
+    private  Long min_temperature;
+
+    private  Long max_temperature;
+
+    private  Long min_humidity;
+
+    private  Long max_humidity;
+
+    private  Long time;
 
 
 }
