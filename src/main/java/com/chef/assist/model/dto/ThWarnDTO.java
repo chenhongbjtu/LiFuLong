@@ -14,4 +14,6 @@ public class ThWarnDTO {
 
     private Long humidity;
 
+    private String culocation;
+
 }

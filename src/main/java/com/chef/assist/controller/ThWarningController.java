@@ -50,9 +50,11 @@ public class ThWarningController {
         /**
          * 温度预警
          */
+        temp.getCulocation();
             for(String d : data){
                 Th th = thMapper.findThByName(d);
                 if(temp.getTemperature() <= th.getMin_temperature()){
+
                      tag =false;
                     stringBuffer.append("当前运输温度低于"+d+"运输的最低限值"+th.getMin_temperature()+";");
                  //    CaResponse.makeResponse(false,"当前运输温度低于"+d+"运输的最低限值"+th.getMin_temperature(),data);
@@ -68,7 +70,7 @@ public class ThWarningController {
 
         }
 
-        return CaResponse.makeResponse(tag,stringBuffer.toString(),data);
+        return CaResponse.makeResponse1(tag, stringBuffer.toString(), data,temp.getCulocation(),temp.getTemperature()+"°C",temp.getHumidity()+"%");
 
     }
 

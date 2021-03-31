@@ -17,14 +17,12 @@ public class TimeInformation {
 
     private Long humidity;
 
-    @JsonProperty("current_location")
-    private String currentLocation;
+   private String culocation;
 
     private String destination;
 
     @JsonProperty("order_no")
     private String orderNumber;
-
 
 
 }

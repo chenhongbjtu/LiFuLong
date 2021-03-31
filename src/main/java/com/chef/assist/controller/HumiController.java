@@ -54,6 +54,7 @@ public class HumiController {
         for(String d : data){
             Th th = thMapper.findThByName(d);
             if(temp.getHumidity() <= th.getMin_humidity()){
+
               //  return CaResponse.makeResponse(false,"当前运输湿度低于"+d+"运输的最低限值"+th.getMin_humidity(),data);
               tag = false;
               stringBuffer.append("当前运输湿度低于"+d+"运输的最低限值"+th.getMin_humidity()+";");
@@ -66,7 +67,7 @@ public class HumiController {
             }
 
         }
-        return CaResponse.makeResponse(tag,stringBuffer.toString(),data);
+        return CaResponse.makeResponse1(tag,stringBuffer.toString(),data,temp.getCulocation(),temp.getTemperature()+"°C",temp.getHumidity()+"%");
     }
 
 }
