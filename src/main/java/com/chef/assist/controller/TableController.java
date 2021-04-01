@@ -35,10 +35,10 @@ public class TableController {
     public CaResponse registerTable(@RequestBody Table table){
         try{
             tableMapper.insert(table);
-            return CaResponse.makeResponse(true,"成功创建餐桌:"+table.getTableNumber(), table.getTableNumber());
+            return CaResponse.makeResponse(true,"成功创建地址:"+table.getTableNumber(), table.getTableNumber());
         }catch (Exception e){
             if(e instanceof DuplicateKeyException){
-                return CaResponse.makeResponse(false,"已存在同号餐桌:"+table.getTableNumber(), null);
+                return CaResponse.makeResponse(false,"已存在同号地址:"+table.getTableNumber(), null);
             }
             return CaResponse.makeResponse(false,"未知错误",null);
         }
@@ -56,11 +56,11 @@ public class TableController {
             if(e instanceof DataIntegrityViolationException){
                 return CaResponse.makeResponse(false, "不合法的输入或重名", null);
             }else{
-                return CaResponse.makeResponse(false, "修改餐桌未知失败", null);
+                return CaResponse.makeResponse(false, "修改地址未知失败", null);
             }
         }
 
-        return CaResponse.makeResponse(true, "成功修改餐桌信息", id);
+        return CaResponse.makeResponse(true, "成功修改地址信息", id);
     }
 
     @DeleteMapping("/{id}")
@@ -69,13 +69,13 @@ public class TableController {
             tableMapper.delete(id);
         }catch (Exception e){
             if(e instanceof DataIntegrityViolationException){
-                return CaResponse.makeResponse(false,"该餐桌被引用，不能删除", id);
+                return CaResponse.makeResponse(false,"该地址被引用，不能删除", id);
             }else{
                 return CaResponse.makeResponse(false, "未知错误", null);
             }
         }
 
-        return CaResponse.makeResponse(true, "成功删除餐桌", id);
+        return CaResponse.makeResponse(true, "成功删除地址", id);
     }
 
     @Autowired
