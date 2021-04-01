@@ -34,4 +34,10 @@ public class CaResponse {
         response.setTemperature(temperature);
         return response;
     }
+
+    public static CaResponse makeResponse2(Object d){
+        CaResponse response = new CaResponse();
+        response.setData(d);
+        return response;
+    }
 }

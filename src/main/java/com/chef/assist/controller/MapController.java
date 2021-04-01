@@ -24,7 +24,7 @@ public class MapController {
     GetDistance getDistance = new GetDistance();
     MapVO mapVO = new MapVO();
     @GetMapping
-    public CaResponse findDistancTime(@Valid @RequestParam("start") String start,@RequestParam("end") String end){
+    public CaResponse findDistancTime(@RequestParam(value = "start",required = true) String start,@RequestParam(value = "end",required = true) String end){
 
         String startLonLat = getDistance.getLonLat(start);
         String endLonLat = getDistance.getLonLat(end);

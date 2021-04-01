@@ -71,11 +71,11 @@ public class OrderItemController {
             return CaResponse.makeResponse(false,"不在进行中的订单不能增添条目", null);
         }
 
-        // check if this table already bind other order
-        Integer cnt = orderItemMapper.countActiveOrderItemByTableIdAndNotOrderId(orderItem.getTableId(), orderItem.getOrderId());
-        if(cnt>0){
-            return CaResponse.makeResponse(false,"该桌已有其他活跃订单绑定", null);
-        }
+        // check if this table already bind other order 检查该地址是否绑定了其他订单
+//        Integer cnt = orderItemMapper.countActiveOrderItemByTableIdAndNotOrderId(orderItem.getTableId(), orderItem.getOrderId());
+//        if(cnt>0){
+//            return CaResponse.makeResponse(false,"该桌已有其他活跃订单绑定", null);
+//        }
 
         // check if order, dish, table, active, unassigned already has an item there
         OrderItem existing = orderItemMapper.findActiveExistingUnassignedItemsByOrderTableAndDish(orderItem.getOrderId(), orderItem.getDishId(), orderItem.getTableId());
