@@ -2,9 +2,6 @@ package com.chef.assist.controller;
 
 import com.chef.assist.config.CaResponse;
 import com.chef.assist.mapper.DestinationMapper;
-import com.chef.assist.mapper.ThWarnMapper;
-import com.chef.assist.model.Th;
-import com.chef.assist.model.dto.ThWarnDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

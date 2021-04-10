@@ -37,7 +37,7 @@ public class AssignmentController {
         // step 0: count unassigned items in orderId
         int cnt = orderItemMapper.countUnassignedAndFailedAssigned(orderId);
         if(cnt<1){
-            return CaResponse.makeResponse(false,"无可分配菜品", orderId);
+            return CaResponse.makeResponse(false,"该订单商品缺货", orderId);
         }
 
         // step 1: make unassigned items -> waiting_assign(synchronus)
@@ -46,7 +46,7 @@ public class AssignmentController {
         // step 2: do the actual assignment(asynchronous) in separate thread, do not care result in this thread
         assignmentService.assignWaitingAssignedAndFailedAssign(orderId);
 
-        return CaResponse.makeResponse(true, "已分配菜品到厨位", orderId);
+        return CaResponse.makeResponse(true, "已将订单商品分配到指定仓库", orderId);
 
     }
 }
