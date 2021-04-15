@@ -24,5 +24,7 @@ public class TimeInformation {
     @JsonProperty("order_no")
     private String orderNumber;
 
+    private String carNo;
+
 
 }

@@ -16,19 +16,6 @@ import java.net.URLConnection;
  * @desc
  */
 public class GetDistance {
-//    public static void main(String[] args) {
-//        String start = "贵州省贵阳市云岩区";
-//        String end = "贵州省铜仁市德江县";
-//
-//        String startLonLat = getLonLat(start);
-//        String endLonLat = getLonLat(end);
-//
-//        System.out.println(startLonLat);
-//        System.out.println(endLonLat);
-//
-//        Long dis = getDistan(startLonLat,endLonLat);
-//        System.out.println(dis);
-//    }
 
     public  String getLonLat(String address){
         //返回输入地址address的经纬度信息，格式是经度，纬度
