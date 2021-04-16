@@ -27,8 +27,11 @@ public interface ThWarnMapper {
     })
     List<String> getProductNameByOrder(String order_no);
 
-    @Select("select temperature, humidity ,culocation from timeinformation      " +
-            " where id=(select max(id) from timeinformation) and order_no =  #{order_no}")
+
+
+    @Select("select temperature, humidity ,culocation from timeinformation" +
+            " where  order_no =  #{order_no}" +
+            " ORDER BY id desc limit 0,1")
     @Results({
             @Result(property = "temperature",column = "temperature"),
             @Result(property = "humidity",column = "humidity"),
