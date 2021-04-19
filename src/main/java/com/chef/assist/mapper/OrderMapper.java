@@ -110,6 +110,14 @@ public interface OrderMapper {
     })
     List<DetialVo> findDetial();
 
+    @Select("select order_no from ca_order " +
+           "where order_no= #{carNo}"
+    )
+    @Results({
+            @Result(property = "orderNumber",  column = "order_no")
+    })
+    List<String> findOrderByCarNo(String carNo);
+
 
 
 

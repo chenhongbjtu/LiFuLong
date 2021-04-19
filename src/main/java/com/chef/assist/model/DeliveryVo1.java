@@ -13,7 +13,8 @@ public class DeliveryVo1 {
     private String carNo;
     private String name;
     private String phone;
-    private List<String> orderNumber;
+    private String orderNumber;
+
     private String temperature;
     private String humidity;
 }

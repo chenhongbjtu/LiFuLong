@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/distribute")
@@ -38,8 +39,8 @@ public class DistributionController {
         List<String> orderNumber = new ArrayList<>();
 
         for(Order r:orders){
-            if(orders.get(1).getCarNo() == null)
-                orderNumber.add(orders.get(0).getOrderNumber());
+            if(r.getCarNo()==null)
+                orderNumber.add(r.getOrderNumber());
         }
         return CaResponse.makeResponse3(deliveryManMapper.findAllCarNo(),orderNumber);
     }
@@ -55,23 +56,18 @@ public class DistributionController {
 
         List<DetialVo> detialVos = orderMapper.findDetial();
         StringBuilder stringBuilder = new StringBuilder();
+        List<StringBuilder> stringBuilders = new ArrayList<>(100);
 
-        Set hs = new HashSet();
+        List<String> listNew = detialVos .stream().map(DetialVo::getCarNo).distinct().collect(Collectors.toList());
 
+        System.out.println(listNew);
 
-        for (DetialVo  detialVo: detialVos){
-            hs.add(detialVo.getName());
-             stringBuilder= stringBuilder.append(detialVo.getName()) ;
+        List<String>  s1= new ArrayList<>();
+        for(String carNo : listNew ){
+            s1= orderMapper.findOrderByCarNo(carNo);
         }
 
-
-
-
-        System.out.println(detialVos);
-
-
-
-
+        System.out.println(s1);
         return CaResponse.makeResponse(true,"查询成功",detialVos);
     }
 
