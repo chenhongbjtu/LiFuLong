@@ -8,10 +8,7 @@ import com.chef.assist.model.DetialVo;
 import com.chef.assist.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
@@ -45,8 +42,8 @@ public class DistributionController {
         return CaResponse.makeResponse3(deliveryManMapper.findAllCarNo(),orderNumber);
     }
 
-    @GetMapping("/insert/{orderNo}/{carNo}")
-    public String updateOrder(@PathVariable("orderNo") String orderNo,@PathVariable("carNo") String carNo){
+    @GetMapping("/insert")
+    public String updateOrder(@RequestParam(value = "orderNo",required = true) String orderNo, @RequestParam(value = "carNo",required = true) String carNo ){
         orderMapper.updateCarNo(orderNo,carNo);
         return "订单分配成功";
     }
