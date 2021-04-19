@@ -1,5 +1,6 @@
 package com.chef.assist.mapper;
 
+import com.chef.assist.model.DetialVo;
 import com.chef.assist.model.Order;
 import com.chef.assist.model.dto.OrderDTO;
 import com.chef.assist.model.dto.OrderDTO2;
@@ -90,5 +91,28 @@ public interface OrderMapper {
 
     @Delete("DELETE FROM ca_order WHERE id =#{id}")
     void delete(Long id);
+
+    @Select("select order_no,carNo from ca_order")
+    @Results({
+            @Result(property = "orderNumber",  column = "order_no")
+    })
+    List<Order> findOrderNoCar();
+
+    @Update("UPDATE ca_order set carNo = #{orderNumber} " +
+            "where order_no= #{carNo}")
+    void updateCarNo(String carNo, String orderNumber);
+
+
+    @Select(" select d.carNo,d.name,d.phone,co.order_no from deman d, ca_order co" +
+            " where d.carNo = co.carNo")
+    @Results({
+            @Result(property = "orderNumber",  column = "order_no")
+    })
+    List<DetialVo> findDetial();
+
+
+
+
+
 
 }

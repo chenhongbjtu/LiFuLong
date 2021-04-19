@@ -24,4 +24,6 @@ public class Order {
 
     @JsonProperty("end_time")
     private Date endTime;
+
+    private String carNo;
 }

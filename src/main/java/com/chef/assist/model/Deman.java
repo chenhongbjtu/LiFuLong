@@ -25,4 +25,9 @@ public class Deman {
      */
     private String phone;
 
+    /**
+     * 运输车的状态
+     */
+    private String status;
+
 }

@@ -9,6 +9,7 @@ import com.chef.assist.model.dto.DishDTO;
 import com.chef.assist.model.dto.PaginationWrapper;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
@@ -31,9 +32,12 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/dish")
 public class DishController {
 
+
+    @Qualifier("dishMapper")
     @Autowired
     private DishMapper dishMapper;
 
+    @Qualifier("dishTagMapper")
     @Autowired
     private DishTagMapper dishTagMapper;
 
@@ -167,7 +171,7 @@ public class DishController {
         BufferedImage srcImage = null;
         try {
             FileInputStream in = (FileInputStream) file.getInputStream();
-            srcImage = javax.imageio.ImageIO.read(in);
+            srcImage = ImageIO.read(in);
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage());
         }

@@ -13,6 +13,7 @@ import com.chef.assist.service.UserService;
 import com.chef.assist.utils.MyStringUtil;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,9 +24,11 @@ import java.util.List;
 @RequestMapping("/api/v1/order")
 public class OrderController {
 
+    @Qualifier("orderMapper")
     @Autowired
     private OrderMapper orderMapper;
 
+    @Qualifier("orderItemMapper")
     @Autowired
     private OrderItemMapper orderItemMapper;
 

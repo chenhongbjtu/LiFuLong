@@ -24,4 +24,7 @@ public interface DeliveryManMapper {
             @Result(property = "phone",column = "phone")
     })
     List<DeliveryVo> findDeliverMan();
+
+    @Select("select carNo from deman")
+    List<String> findAllCarNo();
 }
